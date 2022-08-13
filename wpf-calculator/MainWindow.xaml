@@ -54,19 +54,19 @@
         <Button x:Name="clearButton" Content="Clear" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource Controls}" />
         <Button x:Name="deleteButton" Content="Delete" Grid.Row="1" Grid.Column="2" Style="{StaticResource Controls}" />
         <Button x:Name="divisionButton" Content="/"  Grid.Row="1" Grid.Column="3" Style="{StaticResource Operators}" />
-        <Button x:Name="sevenButton" Content="7" Grid.Row="2" Grid.Column="0" />
-        <Button x:Name="eightButton" Content="8" Grid.Row="2" Grid.Column="1" />
-        <Button x:Name="nineButton" Content="9" Grid.Row="2" Grid.Column="2" />
+        <Button x:Name="sevenButton" Content="7" Grid.Row="2" Grid.Column="0" Click="NumbersHandler" />
+        <Button x:Name="eightButton" Content="8" Grid.Row="2" Grid.Column="1" Click="NumbersHandler" />
+        <Button x:Name="nineButton" Content="9" Grid.Row="2" Grid.Column="2" Click="NumbersHandler" />
         <Button x:Name="multiplicationButton" Content="*" Grid.Row="2" Grid.Column="3" Style="{StaticResource Operators}" />
-        <Button x:Name="fourButton" Content="4" Grid.Row="3" Grid.Column="0" />
-        <Button x:Name="fiveButton" Content="5" Grid.Row="3" Grid.Column="1" />
-        <Button x:Name="sixButton" Content="6" Grid.Row="3" Grid.Column="2" />
+        <Button x:Name="fourButton" Content="4" Grid.Row="3" Grid.Column="0" Click="NumbersHandler" />
+        <Button x:Name="fiveButton" Content="5" Grid.Row="3" Grid.Column="1" Click="NumbersHandler" />
+        <Button x:Name="sixButton" Content="6" Grid.Row="3" Grid.Column="2" Click="NumbersHandler" />
         <Button x:Name="subtractionButton" Content="-" Grid.Row="3" Grid.Column="3" Style="{StaticResource Operators}" />
-        <Button x:Name="oneButton" Content="1" Grid.Row="4" Grid.Column="0" />
-        <Button x:Name="twoButton" Content="2" Grid.Row="4" Grid.Column="1" />
-        <Button x:Name="threeButton" Content="3" Grid.Row="4" Grid.Column="2" />
+        <Button x:Name="oneButton" Content="1" Grid.Row="4" Grid.Column="0" Click="NumbersHandler" />
+        <Button x:Name="twoButton" Content="2" Grid.Row="4" Grid.Column="1" Click="NumbersHandler" />
+        <Button x:Name="threeButton" Content="3" Grid.Row="4" Grid.Column="2" Click="NumbersHandler" />
         <Button x:Name="additionButton" Content="+" Grid.Row="4" Grid.Column="3" Style="{StaticResource Operators}" />
-        <Button x:Name="zeroButton" Content="0" Grid.Row="5"  Grid.Column="0" Grid.ColumnSpan="2"/>
+        <Button x:Name="zeroButton" Content="0" Grid.Row="5"  Grid.Column="0" Grid.ColumnSpan="2" Click="NumbersHandler" />
         <Button x:Name="dotButton" Content="." Grid.Row="5" Grid.Column="2" Style="{StaticResource Operators}" />
         <Button x:Name="equalsButton" Content="=" Grid.Row="5" Grid.Column="3" Style="{StaticResource Operators}" />
         </Grid>
