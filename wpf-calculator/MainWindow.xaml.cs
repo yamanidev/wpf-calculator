@@ -26,6 +26,7 @@ namespace wpf_calculator
 
         string displayString = "";
 
+
         public MainWindow()
         {
             InitializeComponent();
@@ -37,7 +38,23 @@ namespace wpf_calculator
             {
                 Button senderButton = (Button)sender;
                 displayString += senderButton.Content.ToString();
-                displayText.Text = displayString;
+                displayTextBlock.Text = displayString;
+            }
+        }
+
+        private void DeleteHandler(object sender, RoutedEventArgs e)
+        {
+            if (displayString.Length > 0)
+            {
+                displayString = displayString.Substring(0, displayString.Length - 1);                
+            }
+            
+            if (displayString.Equals(""))
+            {
+                displayTextBlock.Text = "0";
+            } else
+            {
+                displayTextBlock.Text = displayString;
             }
         }
 

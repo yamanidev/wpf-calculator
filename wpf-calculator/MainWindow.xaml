@@ -50,9 +50,9 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock x:Name="displayText" Grid.ColumnSpan="4" Grid.Row="0" Padding="15,10,15,10" Text="0" FontSize="60" TextAlignment="Right" Background="#ececec" FontWeight="SemiBold"/>
+        <TextBlock x:Name="displayTextBlock" Grid.ColumnSpan="4" Grid.Row="0" Padding="15,10,15,10" Text="0" FontSize="60" TextAlignment="Right" Background="#ececec" FontWeight="SemiBold"/>
         <Button x:Name="clearButton" Content="Clear" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource Controls}" />
-        <Button x:Name="deleteButton" Content="Delete" Grid.Row="1" Grid.Column="2" Style="{StaticResource Controls}" />
+        <Button x:Name="deleteButton" Content="Delete" Grid.Row="1" Grid.Column="2" Style="{StaticResource Controls}" Click="DeleteHandler" />
         <Button x:Name="divisionButton" Content="/"  Grid.Row="1" Grid.Column="3" Style="{StaticResource Operators}" />
         <Button x:Name="sevenButton" Content="7" Grid.Row="2" Grid.Column="0" Click="NumbersHandler" />
         <Button x:Name="eightButton" Content="8" Grid.Row="2" Grid.Column="1" Click="NumbersHandler" />
