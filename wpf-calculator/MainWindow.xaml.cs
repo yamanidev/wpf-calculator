@@ -22,6 +22,8 @@ namespace wpf_calculator
     public partial class MainWindow : Window
     {
 
+        const int MAX_DIGITS = 10;
+
         string displayString = "";
 
         public MainWindow()
@@ -31,9 +33,12 @@ namespace wpf_calculator
 
         private void NumbersHandler(object sender, RoutedEventArgs e)
         {
-            Button senderButton = (Button)sender;
-            displayString += senderButton.Content.ToString();
-            displayText.Text = displayString;
+            if (displayString.Length < MAX_DIGITS)
+            {
+                Button senderButton = (Button)sender;
+                displayString += senderButton.Content.ToString();
+                displayText.Text = displayString;
+            }
         }
 
     }
