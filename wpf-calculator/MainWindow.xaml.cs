@@ -22,10 +22,10 @@ namespace wpf_calculator
     public partial class MainWindow : Window
     {
 
-        const int MAX_DIGITS = 10;
-
-        string displayString = "";
-
+        const short MAX_DIGITS = 10;
+        string selectedOperation = "";
+        long firstNumber = 0;
+        long secondNumber = 0;
 
         public MainWindow()
         {
@@ -34,28 +34,72 @@ namespace wpf_calculator
 
         private void NumbersHandler(object sender, RoutedEventArgs e)
         {
-            if (displayString.Length < MAX_DIGITS)
+            if (displayTextBlock.Text.Length < MAX_DIGITS)
             {
-                Button senderButton = (Button)sender;
-                displayString += senderButton.Content.ToString();
-                displayTextBlock.Text = displayString;
+                Button senderButton = (Button) sender;
+                if (displayTextBlock.Text.Equals("0"))
+                {
+                    displayTextBlock.Text = senderButton.Content.ToString();
+                } else
+                {
+                    displayTextBlock.Text += senderButton.Content.ToString();
+                }
             }
         }
 
         private void DeleteHandler(object sender, RoutedEventArgs e)
         {
-            if (displayString.Length > 0)
+            if (displayTextBlock.Text.Length > 0)
             {
-                displayString = displayString.Substring(0, displayString.Length - 1);                
+                displayTextBlock.Text = displayTextBlock.Text.Substring(0, displayTextBlock.Text.Length - 1);
+                if (string.IsNullOrEmpty(displayTextBlock.Text))
+                {
+                    displayTextBlock.Text = "0";
+                }
             }
-            
-            if (displayString.Equals(""))
+        }
+
+        private void OperationsHandler(object sender, RoutedEventArgs e)
+        {
+            firstNumber = int.Parse(displayTextBlock.Text);
+            Button senderButton = (Button) sender;
+            selectedOperation = senderButton.Content.ToString();
+            displayTextBlock.Text = "0";
+        }
+
+        private void EqualsHandler(object sender, RoutedEventArgs e)
+        {
+            // assigning 0 to supress the error in line 93
+            long result = 0;
+            if (secondNumber == 0)
             {
-                displayTextBlock.Text = "0";
-            } else
-            {
-                displayTextBlock.Text = displayString;
+                secondNumber = int.Parse(displayTextBlock.Text);
             }
+            switch(selectedOperation)
+            {
+                case "+":
+                    result = firstNumber + secondNumber;
+                    break;
+                case "-":
+                    result = firstNumber - secondNumber;
+                    break;
+                case "*":
+                    result = firstNumber * secondNumber;
+                    break;
+                case "/":
+                    result = firstNumber / secondNumber;
+                    break;
+            }
+            firstNumber = result;
+            displayTextBlock.Text = result.ToString();
+        }
+
+        private void ClearHandler(object sender, RoutedEventArgs e)
+        {
+            selectedOperation = "";
+            displayTextBlock.Text = "0";
+            firstNumber = 0;
+            secondNumber = 0;
         }
 
     }
